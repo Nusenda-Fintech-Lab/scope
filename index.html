@@ -50,7 +50,7 @@
     color:var(--gray-500);display:inline-block;margin-bottom:14px;
   }
   h1,h2,h3{letter-spacing:-.02em;line-height:1.1}
-  .section{padding:96px 0}
+  .section{padding:16px 0}
   .section-head{max-width:660px;margin:0 auto 56px;text-align:center}
   .section-head h2{font-size:clamp(28px,4vw,42px);font-weight:800}
   .section-head p{margin-top:16px;color:var(--gray-700);font-size:18px}
@@ -85,6 +85,7 @@
   .nav-links a:hover{color:var(--ink)}
   .nav-cta{display:flex;align-items:center;gap:12px}
   .menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:22px}
+
 
   /* ---------- Hero ---------- */
   .hero{padding:74px 0 40px;position:relative;overflow:hidden}
@@ -320,7 +321,7 @@
   .tst .by .role{font-size:13px;color:var(--gray-500)}
   .tst-note{text-align:center;font-size:12px;color:var(--gray-400);margin-top:22px}
 
-  /* ---------- Final CTA ---------- */
+/* ---------- Final CTA & Contact Form ---------- */
   .cta{background:var(--ink);color:#fff;border-radius:28px;padding:64px 48px;text-align:center;
     position:relative;overflow:hidden}
   .cta .eyebrow{color:var(--gray-400)}
@@ -331,7 +332,56 @@
   .cta .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
   .cta .btn-ghost:hover{background:rgba(255,255,255,.08)}
   .cta .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-
+  #cta{ margin-bottom: 12px;}
+  .cta-contact-form{
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+  }
+  .cta-form-row{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .cta-form-message-row{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .cta-contact-form input,
+  .cta-contact-form textarea{
+    width: 100%;
+    max-width: 100%;
+    font: inherit;
+    font-size: 14px;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 9px 12px;
+    outline: none;
+    box-sizing: border-box;
+  }
+  .cta-contact-form input{height: 40px;}
+  .cta-contact-form textarea{height: 80px; resize: vertical;}
+  .cta-contact-form .btn{
+    width: 360px;
+    max-width: 100%;
+    height: 42px;
+    justify-content: center;
+  }
+  @media(max-width:780px){
+    .cta-contact-form input,
+    .cta-contact-form textarea,
+    .cta-contact-form .btn{
+      width: 100%;
+    }
+  }
   /* ---------- Footer ---------- */
   footer{background:#000;color:#fff;padding:56px 0 0}
   .foot-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;
@@ -391,7 +441,7 @@
 <header>
   <div class="wrap nav">
     <div class="brand">
-      <a href="#"><img  src="logo_black_ash.png"  alt="SCOPE logo"></a>
+      <a href="#"><img src="logo_black_ash.png" alt="SCOPE logo"></a>
       <span class="name">SCOPE</span>
     </div>
     <nav class="nav-links">
@@ -401,9 +451,9 @@
       <a href="#about">About</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
+      <a href="#cta">Contact Us</a>
     </nav>
     <div class="nav-cta">
-      <a href="#" class="btn btn-ghost btn-sm">Sign in</a>
       <a href="#cta" class="btn btn-primary btn-sm">Get Started <span class="arrow">→</span></a>
     </div>
     <button class="menu-btn" aria-label="Menu">☰</button>
@@ -804,21 +854,30 @@
         <div class="by"><div class="av">A</div><div><div style="font-weight:600;font-size:14px">Research administrator</div><div class="role">Institutional research office</div></div></div>
       </div>
     </div>
-    <p class="tst-note">Illustrative testimonials shown for demonstration purposes.</p>
-  </div>
+     </div>
 </section>
 
 <!-- ================= FINAL CTA ================= -->
 <section class="section" id="cta">
   <div class="wrap">
     <div class="cta">
-      <span class="eyebrow">Call to Action</span>
-      <h2>Set early-stage researchers on a path to success.</h2>
-      <p>Ready to save time, win more grants, and advance your research? Join SCOPE today.</p>
-      <div class="cta-row">
-        <a href="#" class="btn btn-primary">Join SCOPE today <span class="arrow">→</span></a>
-        <a href="#pricing" class="btn btn-ghost">View pricing</a>
-      </div>
+      
+      
+      <p>Join hundreds of researchers accelerating their scientific funding. Secure, intuitive, and built for your lab.</p>
+      
+      <!-- Contact form inside CTA box -->
+      <form class="cta-contact-form" action="#" method="post" onsubmit="event.preventDefault(); alert('Thank you for reaching out! The SCOPE team will contact you shortly.');">
+        <div class="cta-form-row">
+          <input type="text" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="cta-form-row">
+          <input type="email" name="email" placeholder="Institutional Email" required>
+        </div>
+        <div class="cta-form-message-row">
+          <textarea name="message" placeholder="Tell us about your research or institution..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Request Access <span class="arrow">→</span></button>
+      </form>
     </div>
   </div>
 </section>
